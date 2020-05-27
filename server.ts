@@ -1,16 +1,15 @@
-import { Application, Router } from "https://deno.land/x/oak/mod.ts"
-const port = 6969
+import { Application } from "https://deno.land/x/oak/mod.ts"
+
+import router from './router.ts'
 
 const app = new Application()
 
-const router = new Router()
 
 app.use(router.routes())
 app.use(router.allowedMethods())
 
-router.get('/api/products', ({ response }: {response: any}) => {
-    response.body = 'sup'
-})
+
+const port = 6969
 
 console.log(`Listening on ${port}`);
 
